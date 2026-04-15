@@ -1,0 +1,20 @@
+{
+  "name": "bvh-collision-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.183.2",
+    "three-mesh-bvh": "^0.7.6",
+    "vite": "^5.4.21"
+  },
+  "devDependencies": {
+    "@types/three": "^0.183.1",
+    "typescript": "^6.0.2"
+  }
+}

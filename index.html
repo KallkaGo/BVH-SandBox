@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BVH Collision Detection Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #111; color: #eee; font-family: monospace; overflow: hidden; }
+    #canvas-container { position: absolute; inset: 0; }
+    #info {
+      position: absolute; top: 10px; left: 10px;
+      background: rgba(0,0,0,0.7); padding: 12px 16px;
+      border-radius: 8px; font-size: 13px; max-width: 380px;
+      border: 1px solid #333; max-height: 80vh; overflow-y: auto;
+      pointer-events: auto;
+      overscroll-behavior: contain;
+    }
+    #info h3 { color: #7cf; margin-bottom: 6px; }
+    #info .label { color: #aaa; }
+    #info .value { color: #7fc; font-weight: bold; }
+    #info .hit { color: #f87; }
+    #info .nohit { color: #8f8; }
+    #info .cache-hit { color: #ff0; }
+    #controls {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 10px;
+    }
+    button {
+      background: #2a4a6a; color: #eee; border: 1px solid #5af;
+      padding: 8px 18px; border-radius: 6px; cursor: pointer; font-size: 13px;
+    }
+    button:hover { background: #3a6a9a; }
+    #detail-list {
+      margin-top: 8px; font-size: 11px; color: #fc9; max-height: 260px; overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+    .drag-hint {
+      position: absolute; top: 10px; right: 10px;
+      background: rgba(0,0,0,0.7); padding: 8px 14px;
+      border-radius: 8px; font-size: 12px; color: #7cf;
+      border: 1px solid #333; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div id="info">
+    <h3>BVH Collision Detection (v0.7.6)</h3>
+    <div><span class="label">检测对象数：</span><span class="value" id="obj-count">0</span></div>
+    <div><span class="label">碰撞对象数：</span><span class="value hit" id="hit-count">0</span></div>
+    <div><span class="label">缓存命中：</span><span class="value cache-hit" id="cache-count">0</span></div>
+    <div id="detail-list"></div>
+  </div>
+  <div class="drag-hint">拖拽蓝色球体检测碰撞</div>
+  <div id="controls">
+    <button id="btn-add">添加碰撞体</button>
+    <button id="btn-toggle">暂停/继续</button>
+    <button id="btn-reset">重置</button>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
